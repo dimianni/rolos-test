@@ -1,30 +1,36 @@
 <script lang="ts" setup>
-  import { getPost, Post } from '@/api/api';
-  import { computed, onBeforeMount, ref } from 'vue';
-  import { useRoute } from 'vue-router';
+import { getPost, Post } from '@/api/api';
+import { computed, onBeforeMount, ref } from 'vue';
+import { useRoute } from 'vue-router';
 
-  const route = useRoute();
-  const postId = computed(() => +route.params.postId as Post['id']);
-  const post = ref();
+const route = useRoute();
+const postId = computed(() => +route.params.postId as Post['id']);
+const post = ref();
 
-  onBeforeMount(() => loadPost());
+onBeforeMount(() => loadPost());
 
-  async function loadPost() {
-    post.value = await getPost(postId.value);
-  }
+async function loadPost() {
+  post.value = await getPost(postId.value);
+}
 </script>
 
 <template>
-  <h1>Post {{ postId }}</h1>
-  <RouterLink class="back" to="/">Back</RouterLink>
-  <template v-if="post">
-    <h3>{{ post.title }}</h3>
-    <div>{{ post.body }}</div>
-  </template>
+  <article>
+    <h1>Post {{ postId }}</h1>
+    <RouterLink class="back" to="/">Back</RouterLink>
+    <template v-if="post">
+      <h3>{{ post.title }}</h3>
+      <div>{{ post.body }}</div>
+    </template>
+  </article>
 </template>
 
 <style scoped>
-  .back {
-    color: #46f;
-  }
+
+article{
+  padding: 10px;
+}
+.back {
+  color: #46f;
+}
 </style>
