@@ -6,6 +6,8 @@ Posts are loaded from https://dummyjson.com
 ## Task overview
 
 Your task is to improve the application.\
+Application is written using Vue 3 framework, but the challenge doesn't require deep vue skills
+
 You need to add a pagination functionality to the application.\
 Pagination should work like pagination on [github](https://github.com/search?q=test&type=Repositories) or [habr](https://habr.com/en/all/).
 
